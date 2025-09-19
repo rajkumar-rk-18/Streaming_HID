@@ -1,19 +1,21 @@
 sudo nano /boot/firmware/config.txt 
-                                            [cm4]
-                                            # Enable host mode on the 2711 built-in XHCI USB controller.
-                                            # This line should be removed if the legacy DWC2 controller is required
-                                            # (e.g. for USB device mode) or if USB support is not required.
-                                            #otg_mode=1   ---> Comment
+
+
+[cm4]
+# Enable host mode on the 2711 built-in XHCI USB controller.
+# This line should be removed if the legacy DWC2 controller is required
+# (e.g. for USB device mode) or if USB support is not required.
+#otg_mode=1   ---> Comment
                                             
-                                            [cm5]
-                                            #dtoverlay=dwc2,dr_mode=host   ---> Comment
+[cm5]
+#dtoverlay=dwc2,dr_mode=host   ---> Comment
                                             
-                                            [all]
-                                            dtoverlay=w1-gpio
-                                            enable_uart=1
-                                            dtoverlay=uart1
-                                            dtoverlay=disable-bt
-                                            dtoverlay=dwc2,dr_mode=peripheral ---> Add
+[all]
+dtoverlay=w1-gpio
+enable_uart=1
+dtoverlay=uart1
+dtoverlay=disable-bt
+dtoverlay=dwc2,dr_mode=peripheral ---> Add
 
 sudo nano /boot/firmware/cmdline.txt      -> Add "modules-load=dwc2" after rootwait
 
