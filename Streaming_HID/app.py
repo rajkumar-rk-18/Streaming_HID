@@ -15,7 +15,7 @@ MOUSE_PATH = "/dev/hidg1"
 
 USTREAMER_CMD = [
     "./ustreamer/ustreamer",
-    "--device=/dev/video5",
+    "--device=/dev/video0",
     "--format=uyvy",
     "--resolution=1920x1080",
     "--encoder=m2m-image",
@@ -179,7 +179,7 @@ def smooth_mouse_delta(x, y, threshold=1):
 
 @app.route("/")
 def index():
-    return render_template("index.html", stream_host="100.109.50.57")
+    return render_template("index.html", stream_host="10.8.26.183")
 
 
 @app.route("/shortcut/<name>", methods=["POST"])

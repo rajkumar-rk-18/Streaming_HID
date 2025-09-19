@@ -32,9 +32,10 @@
     <div id="status"></div>
 
     <script>
+        const BASE_IP = "10.8.26.183";
         async function startStream() {
             try {
-                const res = await fetch('http://10.208.57.67:8000/start_stream', {
+                const res = await fetch(`http://${BASE_IP}:8000/start_stream`, {
                     method: 'POST'
                 });
                 const data = await res.json();
@@ -43,7 +44,7 @@
                 if (data.status === "started") {
                     // Redirect to the index page (your actual app)
                     setTimeout(() => {
-                        window.location.href = "http://10.208.57.67:5000/";
+                        window.location.href = `http://${BASE_IP}:5000/`;
                     }, 2000); // wait a bit before redirecting
                 }
             } catch (err) {
